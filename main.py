@@ -26,7 +26,7 @@ class MainWindow(object):
 		self.window.minsize(300, 50)  # 设置窗口的最小值
 		self.window.title("婷婷专享-站酷图片抓取|AI悦创&流沙团队")
 		self.url = "https://www.aiyc.top"
-		# self.img = "https://www.aiyc.top"
+		# self.filename = "Default"
 		# 添加组件
 		self.addComponents()
 
@@ -47,6 +47,12 @@ class MainWindow(object):
 		name.pack(side=tk.LEFT)
 		self.url = tk.Entry(my_frame, bd=5, width=50)
 		self.url.pack(side=tk.RIGHT)
+
+		# 添加用户输入
+		name_file = tk.Label(my_frame, text="文件夹名称")
+		name_file.pack(side=tk.LEFT)
+		self.filename = tk.Entry(my_frame, bd=5, width=30)
+		self.filename = tk.pack(side=tk.RIGHT)
 
 	# my_message = tk.Message(text="Aaaa")
 	# my_message.pack(tk.)

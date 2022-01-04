@@ -50,6 +50,8 @@
 
 程序截图：
 
+![image-20220104143137828](README.assets/image-20220104143137828.png)
+
 
 
 ## 4. 开发日志
@@ -68,6 +70,16 @@
 [1.0 版本](https://github.com/AndersonHJB/zcool_crawler/releases/download/1.0/zcool.exe)
 
 
+
+### 1.1 版本
+
+1. 修复文件夹创建与存储问题：
+
+![image-20220104124349304](README.assets/image-20220104124349304.png)
+
+2. 直接使用 description 当作文件夹存储有点草率，但是又不想存储成默认的啥 download 文件夹之类的；
+3. 添加存储文件夹名称和默认名称；
+4.  错误存储功能，也就是错误日志；
 
 
 
