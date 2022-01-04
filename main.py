@@ -6,7 +6,7 @@
 @Software: PyCharm
 @Blog    ：https://www.aiyc.top
 @公众号   ：AI悦创
-@description：
+@description：站酷图片抓取+GUI
 """
 import os
 import tkinter as tk
