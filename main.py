@@ -11,12 +11,8 @@
 import os
 import tkinter as tk
 import re, requests, json
-# from pprint import pprint
-
 from requests.exceptions import RequestException
-
-
-# from urllib.parse import urljoin
+from uuid import uuid4
 
 
 class MainWindow(object):
@@ -26,7 +22,7 @@ class MainWindow(object):
 		self.window.minsize(300, 50)  # 设置窗口的最小值
 		self.window.title("婷婷专享-站酷图片抓取|AI悦创&流沙团队")
 		self.url = "https://www.aiyc.top"
-		# self.filename = "Default"
+		self.filename = "Default"
 		# 添加组件
 		self.addComponents()
 
@@ -36,10 +32,9 @@ class MainWindow(object):
 	def addComponents(self):
 		my_frame = tk.Frame(self.window)  # 就是要把组件放在哪个主窗口 my_frame 又是其他组件的父组件
 		# 设置 my_frame 的布局方式，在最上面
-		my_frame.pack(side=tk.TOP)
+		my_frame.pack(side=tk.TOP, anchor="w")
 		# 创建按钮
 		# tk.Button(父窗体, text="str")
-		# my_button = tk.Button(my_frame, text="执行", command=self.button_clicked)
 		my_button = tk.Button(my_frame, text="执行", command=self.parse)
 		my_button.pack(side=tk.RIGHT)
 		# 创建单行文本
@@ -48,18 +43,14 @@ class MainWindow(object):
 		self.url = tk.Entry(my_frame, bd=5, width=50)
 		self.url.pack(side=tk.RIGHT)
 
-		# 添加用户输入
-		name_file = tk.Label(my_frame, text="文件夹名称")
+		# 添加用户输入文件夹名称
+		my_frame2 = tk.Frame(self.window)
+		my_frame2.pack(side=tk.BOTTOM, anchor="w")
+		name_file = tk.Label(my_frame2, text="文件夹名称")
 		name_file.pack(side=tk.LEFT)
-		self.filename = tk.Entry(my_frame, bd=5, width=30)
-		self.filename = tk.pack(side=tk.RIGHT)
-
-	# my_message = tk.Message(text="Aaaa")
-	# my_message.pack(tk.)
-
-	# def button_clicked(self):
-	# 	print("啊哦，按钮被点击了！")
-	# 	print(self.url.get())
+		self.filename = tk.Entry(my_frame2, bd=5, width=30)
+		self.filename.insert(tk.END, "Default")
+		self.filename.pack(side=tk.RIGHT)
 
 	def parse(self):
 		html = self.request_html(self.url.get())
@@ -76,7 +67,10 @@ class MainWindow(object):
 			data = json_data["data"]
 			img_url_list = data["allImageList"]
 			description = data["product"]["description"]
-			os.mkdir(description)
+			if os.path.exists(self.filename.get()):
+				pass
+			else:
+				os.mkdir(self.filename.get())
 			for index, img_url in enumerate(img_url_list):
 				url = img_url.get("url", "https://gitee.com/huangjiabaoaiyc/image/raw/master/202201040033058.png")
 				# print(url)
@@ -84,15 +78,11 @@ class MainWindow(object):
 				html = self.request_html(url=url, charset=False)
 				# print(postfix)
 
-				with open(f"{description}/{description}{index}.jpg", "wb")as f:
+				with open(f"{self.filename.get()}/{uuid4()}{postfix}", "wb")as f:
 					f.write(html)
 		except KeyError as e:
 			# print(e)
 			pass
-	# print(html)
-	# pattern = re.compile('<img.*?src="(https://img.zcool.cn.*?.jpg)".*?>')
-	# result = re.findall(pattern, html)
-	# print(result)
 
 	def request_html(self, url, charset=True):
 		headers = {
