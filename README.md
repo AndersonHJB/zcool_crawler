@@ -16,4 +16,53 @@
 
 ![image-20220104092610238](README.assets/image-20220104092610238.png)
 
-那我在想要不要约出来呢？不够，内心还是想的。但是还是没那么大的勇气害。。。
+那我在想要不要约出来呢？不够，内心还是想的。但是还是没那么大的勇气害。。。好了，需求提了。瓜也给你们吃了，是不是得给我三连啊。。。
+
+
+
+## 2. BASE Solution
+
+最简单的解决方案呢，就是看网页源代码。除非像 svg 或者像下面直接复制图片得到的：
+
+```base64
+![image.png](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)
+```
+
+
+
+其实，在源码中或者在开发者工具中是可以找到这个图片的。
+
+
+
+所以，打开开发者模式之后，直接选择图片即可。或者，直接
+
+
+
+
+
+
+
+
+
+
+
+
+
+![image.png](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
