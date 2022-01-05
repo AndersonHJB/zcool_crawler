@@ -96,7 +96,7 @@ west：西（w）
 
 下载链接：
 
-
+[1.1 zcool.exe](https://github.com/AndersonHJB/zcool_crawler/releases/download/1.1/zcool.exe)
 
 
 
