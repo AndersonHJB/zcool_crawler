@@ -29,8 +29,8 @@ class MainWindow(object):
 		my_frame.pack(side=tk.TOP, anchor="w")
 		# 创建按钮
 		# tk.Button(父窗体, text="str")
-		my_button = tk.Button(my_frame, text="执行", command=self.button_clicked)
-		# my_button = tk.Button(my_frame, text="执行")
+		# my_button = tk.Button(my_frame, text="执行", command=self.button_clicked)
+		my_button = tk.Button(my_frame, text="执行")
 		my_button.pack(side=tk.RIGHT)
 		# 创建单行文本
 		name = tk.Label(my_frame, text="URL")
